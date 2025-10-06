@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) Philipp Breitsprecher, Inc - All Rights Reserved
+  ~ @project Mage2 GD
+  ~ @file module.xml
+  ~ @author Philipp Breitsprecher
+  ~ @date 02.10.25, 09:08
+  ~ @email philippbreitsprecher@gmail.com
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Sickdaflip_Theme" setup_version="0.0.1">
+        <module name="Magento_Catalog"/>
+    </module>
+</config>

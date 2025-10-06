@@ -1,0 +1,24 @@
+{
+    "name": "sickdaflip/module-frontend-gastrodax",
+    "description": "",
+    "require": {
+        "php": "^8.4",
+        "ext-json": "*"
+    },
+    "type": "magento2-module",
+    "license": [
+        "proprietary"
+    ],
+    "authors": [{
+        "name": "Philipp Breitsprecher",
+        "email": "philippbreitsprecher@gmail.com"
+    }],
+    "autoload": {
+        "files": [
+            "src/registration.php"
+        ],
+        "psr-4": {
+            "Sickdaflip\\Theme\\": "src/"
+        }
+    }
+}

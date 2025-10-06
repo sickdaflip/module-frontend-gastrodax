@@ -1,0 +1,44 @@
+<?php
+/*
+ * Copyright (C) Philipp Breitsprecher, Inc - All Rights Reserved
+ * @project Mage2 GD
+ * @file msrp.phtml
+ * @author Philipp Breitsprecher
+ * @date 02.10.25, 09:08
+ * @email philippbreitsprecher@gmail.com
+ */
+
+declare(strict_types=1);
+
+use Sickdaflip\Theme\Block\Price\Msrp;
+use Hyva\Theme\ViewModel\ProductPage;
+use Hyva\Theme\ViewModel\ProductPrice;
+use Magento\Framework\Escaper;
+use Magento\Tax\Model\Config;
+
+/** @var Msrp $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+/** @var ProductPage $productViewModel */
+/** @var ProductPrice $productPriceViewModel */
+
+$productViewModel = $viewModels->require(ProductPage::class);
+$productPriceViewModel = $viewModels->require(ProductPrice::class);
+
+if ($productPriceViewModel->getPriceDisplayType() === Config::DISPLAY_TYPE_EXCLUDING_TAX) {
+    $msrp = $block->getMsrpPriceExclTax();
+} else {
+    $msrp = $block->getMsrpPriceInclTax();
+}
+?>
+<?php if ($msrp != null): ?>
+<div class="msrp-price block">
+        <span class="price-label text-gray-400">
+            <?= $escaper->escapeHtml(__('MSRP')) ?>
+        </span>
+    <span class="price text-gray-400">
+            <?= /** @noEscape */
+            $productViewModel->format($msrp) ?>
+        </span>
+</div>
+<?php endif; ?>
